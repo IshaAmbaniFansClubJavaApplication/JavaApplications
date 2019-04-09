@@ -1,0 +1,42 @@
+package com.lamda.pract;
+
+import java.util.ArrayList;
+
+public class StudentMain {
+	    private static void println(String message) {
+        System.out.println(message);
+    }
+        /**
+         * @param args
+         * @throws java.lang.Exception
+         */
+        public static void main(String[] args) throws java.lang.Exception {
+        ArrayList<Student> studentList = new ArrayList<>();
+        Student std1 = new Student("Prasad", 2, 29, 28);
+        Student std2 = new Student("Sardar", 1, 50, 29);
+        Student std3 = new Student("Peera", 3, 23, 18);
+        Student std4 = new Student("Rupesh", 5, 90, 20);
+        Student std5 = new Student("Srinu", 4, 86, 23);
+        studentList.add(std2);
+        studentList.add(std1);
+        studentList.add(std3);
+        studentList.add(std4);
+        studentList.add(std5);
+            Student topStudent = null;
+             int maxAge = 0;
+            for (int i = 0; i <studentList.size(); i++) { 
+        	if (studentList.get(i).getStudentAge() > maxAge) {
+                topStudent = studentList.get(i);
+                maxAge = studentList.get(i).getStudentAge();
+                   }
+           }
+            if (topStudent != null) {
+            println("Top Student Details : ");
+            println("Name : " + topStudent.getStudentName());
+            println("Age : " + topStudent.getStudentAge());
+            println("Roll No : " + topStudent.getStudentRollNo());
+            println("Marks : " + topStudent.getStudentMarks());
+        }
+        
+    }
+}
