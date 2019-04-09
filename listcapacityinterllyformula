@@ -1,0 +1,1 @@
+int newCapacity = (oldCapacity * 3)/2 + 1;
