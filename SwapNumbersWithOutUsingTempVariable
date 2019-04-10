@@ -1,0 +1,14 @@
+public class SwapNumbersWithOutUsingTempVariable {
+	public static void main(String[] args) {
+		int a = 10;
+		int b = 20;
+		 a = a+b;
+		 System.out.println("this is total value of the variable :"+a);
+		 b = a-b;
+		 System.out.println("this is B value after swap : "+b);
+		 a = a-b;
+		 System.out.println("this is A value :"+a);
+		
+	}
+
+}
