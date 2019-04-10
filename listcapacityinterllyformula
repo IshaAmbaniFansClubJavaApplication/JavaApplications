@@ -1,1 +1,2 @@
-int newCapacity = (oldCapacity * 3)/2 + 1;
+ArrayList capacity formula : int newCapacity = (oldCapacity * 3)/2 + 1;
+StringBuilder capacity formula : (16*2)+2=34 i.e (oldcapacity*2)+2  
