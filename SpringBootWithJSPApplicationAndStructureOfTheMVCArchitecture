@@ -1,0 +1,138 @@
+
+Spring Boot application with JSP page related 
+---------------------------------------------
+Diagram----spring boot with jsp --->
+-------------------------------------
+Required Things
+----------------
+1)main / client class
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootJSP {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootCoockies.class, args);
+		System.out.println("started");
+	}
+
+}
+2)Contrller class
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+// @RestController
+@Controller
+public class JSPController {
+	 
+    @RequestMapping(value="/welcome",method=RequestMethod.GET)
+    public ModelAndView printHello() {
+    	
+    	return new ModelAndView("welcome");
+    }
+	
+}
+
+3) applicarion.properties file
+------------------------------
+server.port=1111
+#this is jsp page and location of the jsp 
+#where the location of the jsp page of the application
+spring.mvc.view.prefix:/WEB-INF/jsp/
+spring.mvc.view.suffix:.jsp
+
+4) pom.xml
+---------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.20.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>spring.boot.cookie.app</groupId>
+	<artifactId>spring-boot-cookie-app.main</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>spring-boot-cookie-app.main</name>
+	<description> Spring BootCookie</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+welcome.html
+-------------
+<h1>Welcome to Spring Boot Application with JSP page related </h1>
+
+ Structure of the applicarion
+ -----------------------------
+spring-boot-jsp-application
+      |
+	    |
+	  WEB-INF
+	    |
+		  |
+		  jsp
+		   
+ above structure is internally it will follow the MVC architecture 
+structure of the original MVC architecture of the application
+--------------------------------------------------------------
+
+spring-boot-jsp-application
+    |
+	  |
+	  |-->WEB-INF
+	  | 	|--> web.xml
+	  |		|-->lib
+	  |		|-->classes
+	  |
+	  |-->index.html
+	     
+	
