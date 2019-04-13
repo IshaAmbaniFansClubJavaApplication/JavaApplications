@@ -1,0 +1,35 @@
+
+
+public class OverRidingParentDemo {
+	public static void m1() {
+		System.out.println("this is parent OverRidingParentDemo");
+	}
+
+}
+
+
+public class OverRidingChildDemo extends OverRidingParentDemo{
+	public static void m1() {
+		System.out.println("this iis child related data OverRidingChildDemo");
+	}
+ public static void main(String[] args) {
+	 OverRidingParentDemo demo = new OverRidingChildDemo();
+	 System.out.println("this is OverRidingParentDemo reference and child class object");
+	 demo.m1();
+	 OverRidingChildDemo childDemo = new OverRidingChildDemo();
+	 System.out.println("child class object and child class reference");
+	 childDemo.m1();
+	 
+	 OverRidingParentDemo parentDemo = (OverRidingParentDemo)childDemo;
+	 System.out.println("this is type casting here");
+	 parentDemo.m1();
+}
+}
+
+OutPut:
+this is OverRidingParentDemo reference and child class object
+this is parent OverRidingParentDemo
+child class object and child class reference
+this iis child related data OverRidingChildDemo
+this is type casting here
+this is parent OverRidingParentDemo
